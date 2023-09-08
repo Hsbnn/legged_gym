@@ -63,7 +63,7 @@ class B1FlatCfg( LeggedRobotCfg ):
         stiffness = {'joint': 200.}  # [N*m/rad]
         damping = {'joint': 5}     # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
-        action_scale = 0.125
+        action_scale = 0.25
         # decimation: Number of control action updates @ sim DT per policy DT
         decimation = 4
 

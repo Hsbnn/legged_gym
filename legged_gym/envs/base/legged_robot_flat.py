@@ -871,7 +871,7 @@ class LeggedRobotFlat(BaseTask):
 
     def _reward_tracking_lin_vel(self):
         # Tracking of linear velocity commands (xy axes)
-        lin_vel_error = torch.sum(torch.square(self.commands[:, :2] - self.base_lin_vel[:, 1:]), dim=1)
+        lin_vel_error = torch.sum(torch.square(self.commands[:, :2] + self.base_lin_vel[:, 1:]), dim=1)
         return torch.exp(-lin_vel_error/self.cfg.rewards.tracking_sigma)
     
     def _reward_tracking_ang_vel(self):
