@@ -815,20 +815,20 @@ class LeggedRobotFlat(BaseTask):
     #------------ reward functions----------------
     def _reward_lin_vel_z(self):
         # Penalize z axis base linear velocity
-        return torch.square(self.base_lin_vel[:, 2])
+        return torch.square(self.base_lin_vel[:, 0])
     
     def _reward_ang_vel_xy(self):
         # Penalize xy axes base angular velocity
-        return torch.sum(torch.square(self.base_ang_vel[:, :2]), dim=1)
+        return torch.sum(torch.square(self.base_ang_vel[:, 1:]), dim=1)
     
     def _reward_orientation(self):
         # Penalize non flat base orientation
-        return torch.sum(torch.square(self.projected_gravity[:, :2]), dim=1)
+        return torch.sum(torch.square(self.projected_gravity[:, 1:]), dim=1)
 
     def _reward_base_height(self):
         # Penalize base height away from target
         base_height = torch.mean(self.root_states[:, 2].unsqueeze(1) - self.measured_heights, dim=1)
-        return torch.square(base_height - self.cfg.rewards.base_height_target)
+        return torch.square(base_height - self.cfg.rewards.base_height_target) * 0.0
     
     def _reward_torques(self):
         # Penalize torques
@@ -890,12 +890,12 @@ class LeggedRobotFlat(BaseTask):
         rew_airTime = torch.sum((self.feet_air_time - 0.5) * first_contact, dim=1) # reward only on first contact with the ground
         rew_airTime *= torch.norm(self.commands[:, :2], dim=1) > 0.1 #no reward for zero command
         self.feet_air_time *= ~contact_filt
-        return rew_airTime
+        return rew_airTime * 0.0
     
     def _reward_stumble(self):
         # Penalize feet hitting vertical surfaces
         return torch.any(torch.norm(self.contact_forces[:, self.feet_indices, :2], dim=2) >\
-             5 *torch.abs(self.contact_forces[:, self.feet_indices, 2]), dim=1)
+             5 *torch.abs(self.contact_forces[:, self.feet_indices, 2]), dim=1) * 0.0
         
     def _reward_stand_still(self):
         # Penalize motion at zero commands

@@ -39,22 +39,22 @@ class B1FlatCfg( LeggedRobotCfg ):
 
     class init_state( LeggedRobotCfg.init_state ):
         pos = [0.0, 0.0, 1.0] # x,y,z [m]
-        rot = [0.0, 0.6, 0.0, (1-0.36) ** 0.5] # x,y,z,w [quat]
+        rot = [0.0, -0.6, 0.0, (1-0.36) ** 0.5] # x,y,z,w [quat]
         default_joint_angles = { # = target angles [rad] when action = 0.0
             'FL_hip_joint': 0.0,   # [rad]
             'RL_hip_joint': 0.0,   # [rad]
             'FR_hip_joint':  0.0,  # [rad]
             'RR_hip_joint': 0.0,   # [rad]
 
-            'FL_thigh_joint': -0.8,     # [rad]
-            'RL_thigh_joint': -0.8,   # [rad]
-            'FR_thigh_joint': -0.8,     # [rad]
-            'RR_thigh_joint': -0.8,   # [rad]
+            'FL_thigh_joint': 2.0,     # [rad]
+            'RL_thigh_joint': 2.0,   # [rad]
+            'FR_thigh_joint': 2.0,     # [rad]
+            'RR_thigh_joint': 2.0,   # [rad]
 
-            'FL_calf_joint': -0.6,   # [rad]
-            'RL_calf_joint': -0.6,    # [rad]
-            'FR_calf_joint': -0.6,  # [rad]
-            'RR_calf_joint': -0.6,    # [rad]
+            'FL_calf_joint': -1.6,   # [rad]
+            'RL_calf_joint': -1.6,    # [rad]
+            'FR_calf_joint': -1.6,  # [rad]
+            'RR_calf_joint': -1.6,    # [rad]
         }
 
     class control( LeggedRobotCfg.control ):
