@@ -31,6 +31,7 @@
 from legged_gym import LEGGED_GYM_ROOT_DIR, LEGGED_GYM_ENVS_DIR
 from legged_gym.envs.a1.a1_config import A1RoughCfg, A1RoughCfgPPO
 from .base.legged_robot import LeggedRobot
+from .base.legged_robot_flat import LeggedRobotFlat
 from .anymal_c.anymal import Anymal
 from .anymal_c.mixed_terrains.anymal_c_rough_config import AnymalCRoughCfg, AnymalCRoughCfgPPO
 from .anymal_c.flat.anymal_c_flat_config import AnymalCFlatCfg, AnymalCFlatCfgPPO
@@ -39,6 +40,7 @@ from .cassie.cassie import Cassie
 from .cassie.cassie_config import CassieRoughCfg, CassieRoughCfgPPO
 from .a1.a1_config import A1RoughCfg, A1RoughCfgPPO
 from .b1.b1_config import B1RoughCfg, B1RoughCfgPPO
+from .b1.b1_config_flat import B1FlatCfg, B1FlatCfgPPO
 from .a1_copy.a1_config import A1CopyRoughCfg, A1CopyRoughCfgPPO
 
 
@@ -51,5 +53,6 @@ task_registry.register( "anymal_c_flat", Anymal, AnymalCFlatCfg(), AnymalCFlatCf
 task_registry.register( "anymal_b", Anymal, AnymalBRoughCfg(), AnymalBRoughCfgPPO() )
 task_registry.register( "a1", LeggedRobot, A1RoughCfg(), A1RoughCfgPPO() )
 task_registry.register( "b1", LeggedRobot, B1RoughCfg(), B1RoughCfgPPO() )
+task_registry.register( "b1_flat", LeggedRobotFlat, B1FlatCfg(), B1FlatCfgPPO() )
 task_registry.register( "a1_copy", LeggedRobot, A1CopyRoughCfg(), A1CopyRoughCfgPPO() )
 task_registry.register( "cassie", Cassie, CassieRoughCfg(), CassieRoughCfgPPO() )

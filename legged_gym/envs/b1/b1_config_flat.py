@@ -30,27 +30,31 @@
 
 from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobotCfgPPO
 
-class B1RoughCfg( LeggedRobotCfg ):
-    class env( LeggedRobotCfg.env ):
-        num_envs = 16
+class B1FlatCfg( LeggedRobotCfg ):
+    #class env( LeggedRobotCfg.env ):
+    #    num_envs = 16
+  
+    class terrain( LeggedRobotCfg.terrain ):
+        mesh_type = 'plane'
 
     class init_state( LeggedRobotCfg.init_state ):
         pos = [0.0, 0.0, 1.0] # x,y,z [m]
+        rot = [0.0, 0.6, 0.0, (1-0.36) ** 0.5] # x,y,z,w [quat]
         default_joint_angles = { # = target angles [rad] when action = 0.0
-            'FL_hip_joint': 0.1,   # [rad]
-            'RL_hip_joint': 0.1,   # [rad]
-            'FR_hip_joint': -0.1 ,  # [rad]
-            'RR_hip_joint': -0.1,   # [rad]
+            'FL_hip_joint': 0.0,   # [rad]
+            'RL_hip_joint': 0.0,   # [rad]
+            'FR_hip_joint':  0.0,  # [rad]
+            'RR_hip_joint': 0.0,   # [rad]
 
-            'FL_thigh_joint': 0.8,     # [rad]
-            'RL_thigh_joint': 1.,   # [rad]
-            'FR_thigh_joint': 0.8,     # [rad]
-            'RR_thigh_joint': 1.,   # [rad]
+            'FL_thigh_joint': -0.8,     # [rad]
+            'RL_thigh_joint': -0.8,   # [rad]
+            'FR_thigh_joint': -0.8,     # [rad]
+            'RR_thigh_joint': -0.8,   # [rad]
 
-            'FL_calf_joint': -1.5,   # [rad]
-            'RL_calf_joint': -1.5,    # [rad]
-            'FR_calf_joint': -1.5,  # [rad]
-            'RR_calf_joint': -1.5,    # [rad]
+            'FL_calf_joint': -0.6,   # [rad]
+            'RL_calf_joint': -0.6,    # [rad]
+            'FR_calf_joint': -0.6,  # [rad]
+            'RR_calf_joint': -0.6,    # [rad]
         }
 
     class control( LeggedRobotCfg.control ):
@@ -78,11 +82,11 @@ class B1RoughCfg( LeggedRobotCfg ):
             torques = -0.0001
             dof_pos_limits = -10.0
 
-class B1RoughCfgPPO( LeggedRobotCfgPPO ):
+class B1FlatCfgPPO( LeggedRobotCfgPPO ):
     class algorithm( LeggedRobotCfgPPO.algorithm ):
         entropy_coef = 0.01
     class runner( LeggedRobotCfgPPO.runner ):
         run_name = ''
-        experiment_name = 'rough_b1'
+        experiment_name = 'flat_b1'
 
   
