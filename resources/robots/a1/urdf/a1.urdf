@@ -16,7 +16,6 @@
     <color rgba="0.913725490196 0.913725490196 0.847058823529 1.0"/>
   </material>
   <material name="orange">
-    <!-- <color rgba="1.0 0.423529411765 0.0392156862745 1.0"/> -->
     <color rgba="0.12 0.15 0.2 1.0"/>
   </material>
   <material name="brown">
@@ -79,12 +78,6 @@
       </geometry>
       <material name="red"/>
     </visual>
-    <!-- <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size=".001 .001 .001"/>
-      </geometry>
-    </collision> -->
   </link>
   <joint name="FR_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0.183 -0.047 0"/>
@@ -102,12 +95,6 @@
       </geometry>
       <material name="orange"/>
     </visual>
-    <!-- <collision>
-      <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.04" radius="0.046"/>
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.003311 -0.000635 3.1e-05"/>
       <mass value="0.696"/>

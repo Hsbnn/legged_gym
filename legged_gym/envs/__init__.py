@@ -38,6 +38,8 @@ from .anymal_b.anymal_b_config import AnymalBRoughCfg, AnymalBRoughCfgPPO
 from .cassie.cassie import Cassie
 from .cassie.cassie_config import CassieRoughCfg, CassieRoughCfgPPO
 from .a1.a1_config import A1RoughCfg, A1RoughCfgPPO
+from .b1.b1_config import B1RoughCfg, B1RoughCfgPPO
+from .a1_copy.a1_config import A1CopyRoughCfg, A1CopyRoughCfgPPO
 
 
 import os
@@ -48,4 +50,6 @@ task_registry.register( "anymal_c_rough", Anymal, AnymalCRoughCfg(), AnymalCRoug
 task_registry.register( "anymal_c_flat", Anymal, AnymalCFlatCfg(), AnymalCFlatCfgPPO() )
 task_registry.register( "anymal_b", Anymal, AnymalBRoughCfg(), AnymalBRoughCfgPPO() )
 task_registry.register( "a1", LeggedRobot, A1RoughCfg(), A1RoughCfgPPO() )
+task_registry.register( "b1", LeggedRobot, B1RoughCfg(), B1RoughCfgPPO() )
+task_registry.register( "a1_copy", LeggedRobot, A1CopyRoughCfg(), A1CopyRoughCfgPPO() )
 task_registry.register( "cassie", Cassie, CassieRoughCfg(), CassieRoughCfgPPO() )
