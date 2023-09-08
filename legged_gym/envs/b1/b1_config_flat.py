@@ -38,7 +38,7 @@ class B1FlatCfg( LeggedRobotCfg ):
         mesh_type = 'plane'
 
     class init_state( LeggedRobotCfg.init_state ):
-        pos = [0.0, 0.0, 1.0] # x,y,z [m]
+        pos = [0.0, 0.0, 1.5] # x,y,z [m]
         rot = [0.0, -0.6, 0.0, (1-0.36) ** 0.5] # x,y,z,w [quat]
         default_joint_angles = { # = target angles [rad] when action = 0.0
             'FL_hip_joint': 0.0,   # [rad]
