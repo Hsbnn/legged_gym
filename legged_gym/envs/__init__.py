@@ -39,9 +39,12 @@ from .anymal_b.anymal_b_config import AnymalBRoughCfg, AnymalBRoughCfgPPO
 from .cassie.cassie import Cassie
 from .cassie.cassie_config import CassieRoughCfg, CassieRoughCfgPPO
 from .a1.a1_config import A1RoughCfg, A1RoughCfgPPO
-from .b1.b1_config import B1RoughCfg, B1RoughCfgPPO
-from .b1.b1_config_flat import B1FlatCfg, B1FlatCfgPPO
-from .a1_copy.a1_config import A1CopyRoughCfg, A1CopyRoughCfgPPO
+from .a1.a1_config_single import A1RoughCfg as A1RoughCfgSingle, A1RoughCfgPPO as A1RoughCfgPPOSingle
+#from .a1.a1_config2 import A1RoughCfg222, A1RoughCfgPPO222
+#from .b1.b1_config import B1RoughCfg, B1RoughCfgPPO
+#from .b1.b1_config_flat import B1FlatCfg, B1FlatCfgPPO
+#from .a1_copy.a1_config import A1CopyRoughCfg, A1CopyRoughCfgPPO
+#from .a1_copy.a1_config2 import A1CopyRoughCfg2, A1CopyRoughCfgPPO2
 
 
 import os
@@ -52,7 +55,10 @@ task_registry.register( "anymal_c_rough", Anymal, AnymalCRoughCfg(), AnymalCRoug
 task_registry.register( "anymal_c_flat", Anymal, AnymalCFlatCfg(), AnymalCFlatCfgPPO() )
 task_registry.register( "anymal_b", Anymal, AnymalBRoughCfg(), AnymalBRoughCfgPPO() )
 task_registry.register( "a1", LeggedRobot, A1RoughCfg(), A1RoughCfgPPO() )
-task_registry.register( "b1", LeggedRobot, B1RoughCfg(), B1RoughCfgPPO() )
-task_registry.register( "b1_flat", LeggedRobotFlat, B1FlatCfg(), B1FlatCfgPPO() )
-task_registry.register( "a1_copy", LeggedRobot, A1CopyRoughCfg(), A1CopyRoughCfgPPO() )
+task_registry.register( "a1_single_terrain", LeggedRobot, A1RoughCfgSingle(), A1RoughCfgPPOSingle() )
+#task_registry.register( "a1_2", LeggedRobot, A1RoughCfg222(), A1RoughCfgPPO222() )
+#task_registry.register( "b1", LeggedRobot, B1RoughCfg(), B1RoughCfgPPO() )
+#task_registry.register( "b1_flat", LeggedRobotFlat, B1FlatCfg(), B1FlatCfgPPO() )
+#task_registry.register( "a1_copy", LeggedRobot, A1CopyRoughCfg(), A1CopyRoughCfgPPO() )
+#task_registry.register( "a1_copy2", LeggedRobot, A1CopyRoughCfg2(), A1CopyRoughCfgPPO2() )
 task_registry.register( "cassie", Cassie, CassieRoughCfg(), CassieRoughCfgPPO() )
